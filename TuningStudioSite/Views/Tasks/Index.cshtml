@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TuningStudioSite.Models.DbEntities.Task>
+
+@{
+    ViewBag.Title = "Перелік поставлених завдань";
+}
+
+<h2>Перелік поставлених завдань</h2>
+
+<p>
+    @Html.ActionLink("Поставити нове завдання", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            П.І.Б. Клієнта
+        </th>
+        <th>
+            П.І.Б. Майстра
+        </th>
+        <th>
+            Назва завдання
+        </th>
+        <th>
+            Опис завдання
+        </th>
+        <th>
+            Дата завдання
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Master.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTime)
+        </td>
+        <td>
+            @Html.ActionLink("Редагувати", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Детальніше", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Видалити", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

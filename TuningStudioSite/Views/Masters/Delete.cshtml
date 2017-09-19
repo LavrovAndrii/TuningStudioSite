@@ -1,0 +1,56 @@
+﻿@model TuningStudioSite.Models.DbEntities.Master
+
+@{
+    ViewBag.Title = "Видалення майстра";
+}
+
+<h2>Видалення майстра</h2>
+
+<h3>Ви справді хочете звільнити майстра?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            П.І.Б. Майстра
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            Зарплата
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Money)
+        </dd>
+
+        <dt>
+            Телефон
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            Адреса проживання
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Звільнити майстра" class="btn btn-default" /> |
+            @Html.ActionLink("Показати усіх майстрів", "Index")
+        </div>
+    }
+</div>

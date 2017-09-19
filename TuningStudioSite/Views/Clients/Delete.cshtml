@@ -1,0 +1,56 @@
+﻿@model TuningStudioSite.Models.DbEntities.Client
+
+@{
+    ViewBag.Title = "Видалення клієнта";
+}
+
+<h2>Видалення клієнта</h2>
+
+<h3>Ви дійсно хочете видалити даного клієнта з системи?</h3>
+<div>
+ 
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            П.І.Б.
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Телефон
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            Машина
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Видалити даного клієнта остаточно" class="btn btn-default" /> |
+            @Html.ActionLink("Показати усіх клієнтів", "Index")
+        </div>
+    }
+</div>

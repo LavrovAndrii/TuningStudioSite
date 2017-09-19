@@ -1,0 +1,17 @@
+﻿@model List<TuningStudioSite.Models.ViewModel>
+
+<h2>Готові завдання</h2>
+<table class="table-bordered" style="width: 100%">
+    <tr>
+        <th style="width: 70%">Завдання</th>
+        <th style="width: 30%">Дата виконання</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><a href="@Url.Action("Details", "Tasks", new {id=item.Id})">@item.Name</a></td>
+            <td>@item.DateTime.ToString("D")</td>
+        </tr>
+    }
+</table>
+

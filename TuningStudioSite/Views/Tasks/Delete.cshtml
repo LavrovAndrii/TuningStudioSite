@@ -1,0 +1,64 @@
+﻿@model TuningStudioSite.Models.DbEntities.Task
+
+@{
+    ViewBag.Title = "Видалення завдання";
+}
+
+<h2>Видалення завдання</h2>
+
+<h3>Ви справді хочете відмінити дане завдання?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            П.І.Б Клієнта
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.FullName)
+        </dd>
+
+        <dt>
+            П.І.Б. Майстра
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Master.FullName)
+        </dd>
+
+        <dt>
+            Назва завдання
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Опис завдання
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            Дата постановки завдання
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Остаточно видалити це завдання" class="btn btn-default" /> |
+            @Html.ActionLink("Показати наявні завдання", "Index")
+        </div>
+    }
+</div>

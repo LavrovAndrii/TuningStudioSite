@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title – Tuning Service Corporation</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        @Styles.Render("~/Content/css")
+        <link href="~/Scripts/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="~/Scripts/jquery.datetimepicker.min.js"></script>
+    <script type = 'text/javascript' >
+        var appInsights=window.appInsights||function(config)
+        {
+            function r(config){ t[config] = function(){ var i = arguments; t.queue.push(function(){ t[config].apply(t, i)})} }
+            var t = { config:config},u=document,e=window,o='script',s=u.createElement(o),i,f;for(s.src=config.url||'//az416426.vo.msecnd.net/scripts/a/ai.0.js',u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=['Event','Exception','Metric','PageView','Trace','Ajax'];i.length;)r('track'+i.pop());return r('setAuthenticatedUserContext'),r('clearAuthenticatedUserContext'),config.disableExceptionTracking||(i='onerror',r('_'+i),f=e[i],e[i]=function(config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t['_' + i](config, r, u, e, o),s}),t
+        }({
+            instrumentationKey:'20b79c07-c201-492c-b6dd-e2c4d3e0b09c'
+        });
+        
+        window.appInsights=appInsights;
+        appInsights.trackPageView();
+    </script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Тюнінг Ательє", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Створення</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Поставщики", "Create", "Suppliers")</li>
+                            <li>@Html.ActionLink("Деталі", "Create", "Details")</li>
+                            <li>@Html.ActionLink("Завдання", "Create", "Tasks")</li>
+                            <li>@Html.ActionLink("Клієнти", "Create", "Clients")</li>
+                            <li>@Html.ActionLink("Майстри", "Create", "Masters")</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Перегляд інформації</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Поставщики", "Index", "Suppliers")</li>
+                            <li>@Html.ActionLink("Деталі", "Index", "Details")</li>
+                            <li>@Html.ActionLink("Завдання", "Index", "Tasks")</li>
+                            <li>@Html.ActionLink("Клієнти", "Index", "Clients")</li>
+                            <li>@Html.ActionLink("Майстри", "Index", "Masters")</li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Звіти</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Популярні поставщики", "PopularSuppliers", "Analityc")</li>
+                            <li>@Html.ActionLink("Популярні майстри", "PopularMasters", "Analityc")</li>
+                            <li>@Html.ActionLink("Активні кліенти", "ActiveClient", "Analityc")</li>
+                            <li>@Html.ActionLink("Готові завдання", "DoneTasks", "Analityc")</li>
+                            <li>@Html.ActionLink("Завдання виконуються", "ActiveTasks", "Analityc")</li>
+                         </ul>
+                    </li>
+
+                    @*<li>@Html.ActionLink("Контакти", "Contacts", "Home")</li>*@
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        @RenderSection("SPAViews", required: false)
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

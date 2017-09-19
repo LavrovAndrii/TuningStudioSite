@@ -1,0 +1,58 @@
+﻿@model TuningStudioSite.Models.DbEntities.Task
+
+@{
+    ViewBag.Title = "Детальніше про завдання";
+}
+
+<h2>Детальніше про завдання</h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            П.І.Б. Клієнта
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.FullName)
+        </dd>
+
+        <dt>
+            П.І.Б Майстра
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Master.FullName)
+        </dd>
+
+        <dt>
+            Назва завдання
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Опис завдання
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            Дата завдання
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Показати список поставлених завдань", "Index")
+</p>

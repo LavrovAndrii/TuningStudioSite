@@ -1,0 +1,58 @@
+﻿@model TuningStudioSite.Models.DbEntities.Supplier
+
+@{
+    ViewBag.Title = "Детальна інформація про поставщика";
+}
+
+<h2>Детальна інформація про поставщика</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Назва компанії
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fax)
+        </dd>
+
+        <dt>
+            Телефон
+         </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            Адреса
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            Інтернет каталог
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteCatalog)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Показати наших поставщиків", "Index")
+</p>

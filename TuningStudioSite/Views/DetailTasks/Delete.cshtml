@@ -1,0 +1,40 @@
+﻿@model TuningStudioSite.Models.DbEntities.DetailTask
+
+@{
+    ViewBag.Title = "Видалити";
+}
+
+<h2>Видалити</h2>
+
+<h3>Дійсно видалити дану закупку?</h3>
+<div>
+    <h4>DetailTask</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Назва деталі
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detail.NameDetail)
+        </dd>
+
+        <dt>
+            Завдання
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Task.Title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Видалити остаточно" class="btn btn-default" /> |
+            @Html.ActionLink("Показати список деталей для завдань", "Index")
+        </div>
+    }
+</div>

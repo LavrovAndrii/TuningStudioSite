@@ -1,0 +1,64 @@
+﻿@model TuningStudioSite.Models.DbEntities.Supplier
+
+@{
+    ViewBag.Title = "Розірвання догорову з поставщиком";
+}
+
+<h2>Розірвання догорову з поставщиком</h2>
+
+<h3>Ви справді хочете розірвати договір з поставщиком?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Назва компанії
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fax)
+        </dd>
+
+        <dt>
+            Телефон
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            Адреса
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            Інтернет каталог
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteCatalog)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Підтверджую розрив договору " class="btn btn-default" /> |
+            @Html.ActionLink("Показати наших поставщиків", "Index")
+        </div>
+    }
+</div>

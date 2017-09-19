@@ -1,0 +1,50 @@
+﻿@model TuningStudioSite.Models.DbEntities.Client
+
+@{
+    ViewBag.Title = "Інформація про клієнта";
+}
+
+<h2>Інформація про клієнта</h2>
+
+<div>
+    <h4>Детальна інформація про даного клієнта</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            П.І.Б.
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Телефон
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            Машина
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Показати усіх клієнтів", "Index")
+</p>

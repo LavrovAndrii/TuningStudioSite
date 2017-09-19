@@ -1,0 +1,56 @@
+﻿@model TuningStudioSite.Models.DbEntities.Detail
+
+@{
+    ViewBag.Title = "Видалити деталь";
+}
+
+<h2>Видалити деталь</h2>
+
+<h3>Ви справді хочете видалити деталі з прайсу?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Назва компанії
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.CompanyName)
+        </dd>
+
+        <dt>
+            Нозва деталі
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameDetail)
+        </dd>
+
+        <dt>
+            Ціна деталі
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Кількість деталей
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Count)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Видалити" class="btn btn-default" /> |
+            @Html.ActionLink("Показати усі деталі", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,50 @@
+﻿@model TuningStudioSite.Models.DbEntities.Detail
+
+@{
+    ViewBag.Title = "Детальна інформація про деталь";
+}
+
+<h2>Детальніше про деталь</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Назва компанії
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.CompanyName)
+        </dd>
+
+        <dt>
+            Нозва деталі
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameDetail)
+        </dd>
+
+        <dt>
+            Ціна деталі
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Кількість деталей
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Count)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Показати усі деталі", "Index")
+</p>
